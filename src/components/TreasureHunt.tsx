@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Star, Flower, Sparkles, Gift } from "lucide-react";
+import { Star, Flower, Sparkles, Gift, Heart } from "lucide-react";
 import { toast } from "sonner";
 
 export const TreasureHunt = () => {
@@ -54,14 +54,54 @@ export const TreasureHunt = () => {
         <div className="relative w-full h-96 md:h-[500px] border-2 border-dashed border-primary/30 rounded-3xl bg-background/50 backdrop-blur-sm mx-auto overflow-hidden">
           {/* Floating background elements */}
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => (
+            {/* Floating sparkles */}
+            {[...Array(15)].map((_, i) => (
               <div
-                key={i}
+                key={`sparkle-${i}`}
                 className="absolute w-1 h-1 bg-primary/20 rounded-full sparkle-animation"
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
                   animationDelay: `${Math.random() * 3}s`
+                }}
+              />
+            ))}
+            
+            {/* Floating stars */}
+            {[...Array(12)].map((_, i) => (
+              <Star
+                key={`star-${i}`}
+                className="absolute w-3 h-3 text-magic-yellow/40 float-animation"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 4}s`
+                }}
+              />
+            ))}
+            
+            {/* Floating flowers */}
+            {[...Array(10)].map((_, i) => (
+              <Flower
+                key={`flower-${i}`}
+                className="absolute w-4 h-4 text-magic-pink/40 float-animation"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 5}s`
+                }}
+              />
+            ))}
+            
+            {/* Floating hearts */}
+            {[...Array(8)].map((_, i) => (
+              <Heart
+                key={`heart-${i}`}
+                className="absolute w-3 h-3 text-primary/30 glow-animation"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 6}s`
                 }}
               />
             ))}
