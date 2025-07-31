@@ -1,12 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { LoadingLove } from "@/components/LoadingLove";
+import { WelcomeSection } from "@/components/WelcomeSection";
+import { PhotoSection } from "@/components/PhotoSection";
+import { QuoteCarousel } from "@/components/QuoteCarousel";
+import { HeartbeatSection } from "@/components/HeartbeatSection";
+import { TreasureHunt } from "@/components/TreasureHunt";
+import { GiftBoxSection } from "@/components/GiftBoxSection";
+import { PromiseSection } from "@/components/PromiseSection";
+import { CountdownSection } from "@/components/CountdownSection";
+import { SecretNotes } from "@/components/SecretNotes";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return <LoadingLove onComplete={handleLoadingComplete} />;
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <WelcomeSection />
+      <PhotoSection />
+      <QuoteCarousel />
+      <HeartbeatSection />
+      <TreasureHunt />
+      <GiftBoxSection />
+      <PromiseSection />
+      <CountdownSection />
+      <SecretNotes />
     </div>
   );
 };

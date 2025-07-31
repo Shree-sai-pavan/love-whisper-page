@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'dancing': ['Dancing Script', 'cursive'],
+				'caveat': ['Caveat', 'cursive'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,7 +31,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +57,12 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				magic: {
+					pink: 'hsl(var(--magic-pink))',
+					purple: 'hsl(var(--magic-purple))',
+					blue: 'hsl(var(--magic-blue))',
+					yellow: 'hsl(var(--magic-yellow))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

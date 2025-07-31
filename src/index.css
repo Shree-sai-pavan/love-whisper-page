@@ -2,57 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Magical Birthday Gift Design System - Dreamy pastels and sparkles */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dreamy Pastel Palette */
+    --background: 330 100% 98%; /* Soft blush white */
+    --foreground: 340 15% 25%; /* Deep rose brown */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 320 60% 96%; /* Pale rose */
+    --card-foreground: 340 15% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 320 60% 96%;
+    --popover-foreground: 340 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Magical Primary - Soft Rose Gold */
+    --primary: 350 60% 65%; /* Rose gold */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 350 80% 85%; /* Lighter rose for glow effects */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Dreamy Secondary - Lavender */
+    --secondary: 280 40% 88%; /* Soft lavender */
+    --secondary-foreground: 340 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Peach Cream */
+    --muted: 25 80% 92%; /* Soft peach */
+    --muted-foreground: 340 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Mint Dream */
+    --accent: 160 40% 88%; /* Soft mint */
+    --accent-foreground: 340 15% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Magic Colors */
+    --magic-pink: 320 80% 80%; /* Bright pink for sparkles */
+    --magic-purple: 280 60% 75%; /* Soft purple */
+    --magic-blue: 200 60% 80%; /* Sky blue */
+    --magic-yellow: 50 90% 85%; /* Warm yellow */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 320 30% 90%;
+    --input: 320 30% 90%;
+    --ring: 350 60% 65%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 1rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-magic: linear-gradient(135deg, hsl(var(--magic-pink)), hsl(var(--magic-purple)), hsl(var(--magic-blue)));
+    --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-heart: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary-glow)));
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows & Glows */
+    --shadow-magic: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.5);
+    --shadow-sparkle: 0 0 20px hsl(var(--magic-pink) / 0.6);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Animations */
+    --transition-magic: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-out;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 330 60% 95%;
+    --sidebar-foreground: 340 15% 35%;
+    --sidebar-primary: 350 60% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 320 40% 88%;
+    --sidebar-accent-foreground: 340 15% 25%;
+    --sidebar-border: 320 30% 85%;
+    --sidebar-ring: 350 60% 65%;
   }
 
   .dark {
@@ -100,6 +117,131 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
   }
+}
+
+/* Magic Animations & Effects */
+@layer utilities {
+  .sparkle-animation {
+    animation: sparkle 2s infinite;
+  }
+
+  .glow-animation {
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  .magic-gradient {
+    background: var(--gradient-magic);
+  }
+
+  .heart-gradient {
+    background: var(--gradient-heart);
+  }
+
+  .magic-shadow {
+    box-shadow: var(--shadow-magic);
+  }
+
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .sparkle-shadow {
+    box-shadow: var(--shadow-sparkle);
+  }
+
+  .transition-magic {
+    transition: var(--transition-magic);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 20px hsl(var(--primary-glow) / 0.4));
+  }
+  to {
+    filter: drop-shadow(0 0 30px hsl(var(--primary-glow) / 0.8));
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: hsl(var(--primary));
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotateZ(720deg);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-confetti {
+  animation: confetti 3s linear infinite;
 }
