@@ -55,7 +55,7 @@ export const TreasureHunt = () => {
           {/* Floating background elements */}
           <div className="absolute inset-0 overflow-hidden">
             {/* Floating sparkles */}
-            {[...Array(15)].map((_, i) => (
+            {[...Array(25)].map((_, i) => (
               <div
                 key={`sparkle-${i}`}
                 className="absolute w-1 h-1 bg-primary/20 rounded-full sparkle-animation"
@@ -68,7 +68,7 @@ export const TreasureHunt = () => {
             ))}
             
             {/* Floating stars */}
-            {[...Array(12)].map((_, i) => (
+            {[...Array(20)].map((_, i) => (
               <Star
                 key={`star-${i}`}
                 className="absolute w-3 h-3 text-magic-yellow/40 float-animation"
@@ -81,7 +81,7 @@ export const TreasureHunt = () => {
             ))}
             
             {/* Floating flowers */}
-            {[...Array(10)].map((_, i) => (
+            {[...Array(18)].map((_, i) => (
               <Flower
                 key={`flower-${i}`}
                 className="absolute w-4 h-4 text-magic-pink/40 float-animation"
@@ -94,7 +94,7 @@ export const TreasureHunt = () => {
             ))}
             
             {/* Floating hearts */}
-            {[...Array(8)].map((_, i) => (
+            {[...Array(15)].map((_, i) => (
               <Heart
                 key={`heart-${i}`}
                 className="absolute w-3 h-3 text-primary/30 glow-animation"
