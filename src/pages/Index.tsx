@@ -9,7 +9,6 @@ import { GiftBoxSection } from "@/components/GiftBoxSection";
 import { PromiseSection } from "@/components/PromiseSection";
 import { CountdownSection } from "@/components/CountdownSection";
 import { SecretNotes } from "@/components/SecretNotes";
-import { MusicPlayer } from "@/components/MusicPlayer";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +23,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <MusicPlayer autoPlay={true} />
       <WelcomeSection />
       <PhotoSection />
       <QuoteCarousel />
