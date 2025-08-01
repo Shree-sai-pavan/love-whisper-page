@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Quote } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const quotes = [
   "You're not just in my contact list. You're in my story. 📱💖",
@@ -24,6 +24,22 @@ export const QuoteCarousel = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const nextQuote = () => {
+    setIsTyping(true);
+    setTimeout(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+      setIsTyping(false);
+    }, 200);
+  };
+
+  const prevQuote = () => {
+    setIsTyping(true);
+    setTimeout(() => {
+      setCurrentQuote((prev) => (prev - 1 + quotes.length) % quotes.length);
+      setIsTyping(false);
+    }, 200);
+  };
 
   return (
     <section className="py-20 px-6 relative overflow-hidden bg-gradient-to-br from-secondary/30 to-accent/30">
@@ -55,6 +71,15 @@ export const QuoteCarousel = () => {
         </div>
 
         <div className="relative min-h-32 flex items-center justify-center">
+          {/* Left arrow */}
+          <button
+            onClick={prevQuote}
+            className="absolute left-0 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-primary/20 hover:bg-primary/30 text-primary transition-all duration-300 hover:scale-110 z-20"
+            aria-label="Previous quote"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
           <div className="max-w-3xl mx-auto">
             <Quote className="w-8 h-8 text-primary mx-auto mb-4 opacity-60" />
             
@@ -68,6 +93,15 @@ export const QuoteCarousel = () => {
             
             <Quote className="w-8 h-8 text-primary mx-auto mt-4 opacity-60 transform rotate-180" />
           </div>
+
+          {/* Right arrow */}
+          <button
+            onClick={nextQuote}
+            className="absolute right-0 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-primary/20 hover:bg-primary/30 text-primary transition-all duration-300 hover:scale-110 z-20"
+            aria-label="Next quote"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
 
         {/* Quote indicators */}
