@@ -23,53 +23,127 @@ export const PhotoSection = () => {
           </p>
         </div>
 
-        {/* Photo frame area */}
-        <div className="relative inline-block group">
-          <div className="relative">
-            {/* Polaroid frame */}
-            <div 
-              className="w-80 h-80 md:w-96 md:h-96 mx-auto relative transform rotate-2 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
-              style={{
-                backgroundImage: `url(${polaroidFrame})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              {/* Photo placeholder */}
-              <div className="absolute inset-8 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                <div className="text-center">
-                  <Heart className="w-12 h-12 mx-auto text-primary mb-3 glow-animation" />
-                  <p className="font-caveat text-lg text-muted-foreground">
-                    Your special photo goes here 💕
-                  </p>
-                  <p className="font-inter text-sm text-muted-foreground mt-2">
-                    (Upload or replace with your favorite memory!)
+        {/* Photo frames grid */}
+        <div className="relative">
+          <div className="grid grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
+            {/* Frame 1 */}
+            <div className="relative group">
+              <div 
+                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform rotate-2 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
+                style={{
+                  backgroundImage: `url(${polaroidFrame})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
+                  <div className="text-center">
+                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
+                    <p className="font-caveat text-sm text-muted-foreground">
+                      Memory 1 💕
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
+                  <p className="font-caveat text-lg text-foreground text-center px-2">
+                    First moments ✨
                   </p>
                 </div>
               </div>
-              
-              {/* Handwritten caption */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-full">
-                <p className="font-caveat text-xl text-foreground text-center px-4">
-                  One photo. A thousand memories. 💖
-                </p>
+            </div>
+
+            {/* Frame 2 */}
+            <div className="relative group">
+              <div 
+                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform -rotate-1 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
+                style={{
+                  backgroundImage: `url(${polaroidFrame})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
+                  <div className="text-center">
+                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
+                    <p className="font-caveat text-sm text-muted-foreground">
+                      Memory 2 💖
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
+                  <p className="font-caveat text-lg text-foreground text-center px-2">
+                    Sweet times 🌸
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Floating sparkles around photo */}
-            {[...Array(8)].map((_, i) => (
-              <Sparkles
-                key={i}
-                className={`absolute text-magic-pink sparkle-animation pointer-events-none`}
+            {/* Frame 3 */}
+            <div className="relative group">
+              <div 
+                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform -rotate-2 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 2}s`,
-                  fontSize: '20px'
+                  backgroundImage: `url(${polaroidFrame})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}
-              />
-            ))}
+              >
+                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
+                  <div className="text-center">
+                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
+                    <p className="font-caveat text-sm text-muted-foreground">
+                      Memory 3 💝
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
+                  <p className="font-caveat text-lg text-foreground text-center px-2">
+                    Adventure 🌟
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Frame 4 */}
+            <div className="relative group">
+              <div 
+                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform rotate-1 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
+                style={{
+                  backgroundImage: `url(${polaroidFrame})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
+                  <div className="text-center">
+                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
+                    <p className="font-caveat text-sm text-muted-foreground">
+                      Memory 4 💞
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
+                  <p className="font-caveat text-lg text-foreground text-center px-2">
+                    Forever 💖
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Floating sparkles around all frames */}
+          {[...Array(12)].map((_, i) => (
+            <Sparkles
+              key={i}
+              className={`absolute text-magic-pink sparkle-animation pointer-events-none`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                fontSize: '16px'
+              }}
+            />
+          ))}
         </div>
 
         <div className="mt-12">
