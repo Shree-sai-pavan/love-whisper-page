@@ -37,12 +37,11 @@ export const PhotoSection = () => {
                 }}
               >
                 <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
-                    <p className="font-caveat text-sm text-muted-foreground">
-                      Memory 1 💕
-                    </p>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/781c6d50-2c3f-4409-a835-d1d7d3a27fa9.png" 
+                    alt="Neon wings moment" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
                   <p className="font-caveat text-lg text-foreground text-center px-2">
@@ -63,12 +62,11 @@ export const PhotoSection = () => {
                 }}
               >
                 <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
-                    <p className="font-caveat text-sm text-muted-foreground">
-                      Memory 2 💖
-                    </p>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/c9f88014-18c6-4386-be20-32b01ad34e60.png" 
+                    alt="Traditional blue attire" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
                   <p className="font-caveat text-lg text-foreground text-center px-2">
@@ -89,12 +87,11 @@ export const PhotoSection = () => {
                 }}
               >
                 <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
-                    <p className="font-caveat text-sm text-muted-foreground">
-                      Memory 3 💝
-                    </p>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/a7b5bbf9-0e8a-46df-93dc-b8ab0be52831.png" 
+                    alt="Pink flower moment" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
                   <p className="font-caveat text-lg text-foreground text-center px-2">
@@ -115,12 +112,11 @@ export const PhotoSection = () => {
                 }}
               >
                 <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <Heart className="w-8 h-8 mx-auto text-primary mb-2 glow-animation" />
-                    <p className="font-caveat text-sm text-muted-foreground">
-                      Memory 4 💞
-                    </p>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/7abbaf57-ff15-43e4-9416-de5feb22c289.png" 
+                    alt="Street art adventure" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
                   <p className="font-caveat text-lg text-foreground text-center px-2">
