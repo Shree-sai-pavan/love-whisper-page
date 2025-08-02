@@ -27,7 +27,7 @@ export const BackgroundMusic = () => {
         const playPromise = audioRef.current.play();
         if (playPromise !== undefined) {
           playPromise.then(() => {
-            setIsPlaying(true);
+            setIsPlaying(false);
           }).catch((error) => {
             console.log("Playback failed:", error);
           });
