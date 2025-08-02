@@ -16,7 +16,7 @@ export const PhotoSection = () => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="mb-12">
           <h2 className="font-dancing text-4xl md:text-6xl text-foreground mb-4 glow-animation">
-            One Special Photo
+            Special photos, Special Memoria's
           </h2>
           <p className="font-caveat text-2xl md:text-3xl text-primary">
             Forever Framed 📸
