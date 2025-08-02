@@ -144,8 +144,7 @@ export const PhotoSection = () => {
 
         <div className="mt-12">
           <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Some moments are too precious for just memory. 
-            They deserve to be kept, treasured, and revisited whenever we need to smile.
+            Every picture is a whispered moment of us—where laughter bloomed, tears faded, and love quietly lingered between the frames.
           </p>
         </div>
       </div>
