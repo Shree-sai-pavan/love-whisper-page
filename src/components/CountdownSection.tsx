@@ -122,8 +122,7 @@ export const CountdownSection = () => {
 
               <div className="mt-8 pt-6 border-t border-primary/20">
                 <p className="font-inter text-sm text-muted-foreground">
-                  With all my love and warmest wishes,<br />
-                  Your friend who thinks you're absolutely wonderful 💕
+                  Thank you for walking into my life and making it glow with colors I never knew I needed. 💕
                 </p>
               </div>
             </div>
