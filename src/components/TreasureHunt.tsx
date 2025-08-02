@@ -10,7 +10,10 @@ export const TreasureHunt = () => {
   const treasureItems = [
     { id: 1, icon: Star, position: { top: '20%', left: '15%' }, prize: false },
     { id: 2, icon: Flower, position: { top: '60%', right: '20%' }, prize: false },
-    { id: 3, icon: Sparkles, position: { top: '40%', left: '70%' }, prize: true }
+    { id: 3, icon: Flower, position: { top: '80%', right: '40%' }, prize: false },
+    { id: 4, icon: Sparkles, position: { top: '75%', right: '35%' }, prize: false },
+    { id: 5, icon: Sparkles, position: { top: '40%', left: '70%' }, prize: true }
+    { id: 6, icon: Star, position: { top: '20%', left: '75%' }, prize: false },
   ];
 
   const handleItemClick = (item: typeof treasureItems[0]) => {
