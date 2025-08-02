@@ -8,11 +8,12 @@ export const TreasureHunt = () => {
   const [gameComplete, setGameComplete] = useState(false);
 
   const treasureItems = [
-    { id: 1, icon: Star, position: { top: '20%', left: '15%' }, prize: false },
-    { id: 2, icon: Flower, position: { top: '60%', right: '20%' }, prize: false },
-    { id: 3, icon: Flower, position: { top: '80%', right: '40%' }, prize: false },
-    { id: 4, icon: Sparkles, position: { top: '75%', right: '35%' }, prize: false },
-    { id: 5, icon: Sparkles, position: { top: '40%', left: '70%' }, prize: true }
+    { id: 1, icon: Star, position: { top: '20%', left: '100%' }, prize: false },
+    { id: 2, icon: Flower, position: { top: '40%', right: '80%' }, prize: false },
+    { id: 3, icon: Flower, position: { top: '60%', right: '60%' }, prize: false },
+    { id: 4, icon: Sparkles, position: { top: '80%', right: '40%' }, prize: false },
+    { id: 5, icon: Star, position: { top: '50%', left: '50%' }, prize: false },
+    { id: 6, icon: Sparkles, position: { top: '100%', left: '20%' }, prize: true }
   ];
 
   const handleItemClick = (item: typeof treasureItems[0]) => {
