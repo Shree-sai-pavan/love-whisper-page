@@ -154,37 +154,6 @@ export const TreasureHunt = () => {
           )}
         </div>
 
-        {/* Game status */}
-        <div className="mt-8 flex flex-col items-center space-y-4">
-          <div className="flex space-x-2">
-            {treasureItems.map((item) => (
-              <div
-                key={item.id}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  foundItems.includes(item.id)
-                    ? item.prize
-                      ? 'bg-primary glow-shadow scale-125'
-                      : 'bg-muted-foreground'
-                    : 'bg-primary/30'
-                }`}
-              />
-            ))}
-          </div>
-          
-          <p className="font-inter text-sm text-muted-foreground">
-            Found: {foundItems.length} / {treasureItems.length}
-          </p>
-
-          {gameComplete && (
-            <Button
-              onClick={resetGame}
-              className="font-caveat text-lg mt-4"
-              variant="outline"
-            >
-              Play Again ✨
-            </Button>
-          )}
-        </div>
       </div>
     </section>
   );
