@@ -7,9 +7,8 @@ export const BackgroundMusic = () => {
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Place your music file in the public folder and update this path
-  // Example: if you put "romantic-music.mp3" in public folder, use "/romantic-music.mp3"
-  const musicPath = "/your-music.mp3"; // Replace with your actual file name
+  // Background music from Suno
+  const musicPath = "/background-music.mp3";
 
   useEffect(() => {
     if (audioRef.current) {
