@@ -43,7 +43,7 @@ const secretNotes = [
     id: 6,
     title: "Open for daily love",
     icon: Coffee,
-    message: "Good morning, sunshine! ☀️ Just a little reminder that you are: Amazing • Beautiful • Capable • Deserving • Enough • Fabulous • Gifted • Happy • Incredible • Joyful • Kind • Loved • Magnificent • Nice • Outstanding • Perfect as you are • Quantum levels of awesome • Radiant • Special • Treasured • Unique • Valued • Wonderful • eXtraordinary • Youthful at heart • Zero doubt about it! 💖",
+    message: "Good morning, gorgeous! Today is full of possibilities and you're going to absolutely crush it. You're capable, you're loved, and you're enough - just as you are. Go make today beautiful! 🌅",
     color: "from-rose-400 to-pink-500"
   }
 ];
