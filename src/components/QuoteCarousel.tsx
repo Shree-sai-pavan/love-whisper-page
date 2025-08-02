@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const quotes = [
-  "You're not just in my contact list. You're in my story. 📱💖",
-  "I don't need hundreds of memories. You're already unforgettable. ✨",
-  "Some friendships are written in the stars, ours is written in the heart. 💫",
-  "Distance means nothing when someone means everything. 🌍💕",
-  "You're the reason I believe in magic. Because you are magic. ⭐"
+  "You're not just a part of my life—you're the warmth in it, the calm in the chaos, the heartbeat in the silence.",
+  "In your smile, I find sunshine. In your words, I find home. In your presence, I find peace.",
+  "When you're away, the world feels louder, emptier—but your memory still hugs me tight.",
+  "You cared when no one noticed, stayed when others walked away—that's why you live forever in my soul.",
+  "Loving you isn't a choice—it's a feeling that grows every day like flowers in my heart's garden."
 ];
 
 export const QuoteCarousel = () => {
@@ -20,7 +20,7 @@ export const QuoteCarousel = () => {
         setCurrentQuote((prev) => (prev + 1) % quotes.length);
         setIsTyping(false);
       }, 500);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
