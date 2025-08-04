@@ -3,7 +3,7 @@ import { Music, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const BackgroundMusic = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -14,7 +14,7 @@ export const BackgroundMusic = () => {
     if (audioRef.current) {
       audioRef.current.volume = 0.3; // Set to 30% volume
       audioRef.current.loop = true;
-      audioRef.current.autoplay= false;
+      audioRef.current.autoplay = true;
     }
   }, []);
 
@@ -27,7 +27,7 @@ export const BackgroundMusic = () => {
         const playPromise = audioRef.current.play();
         if (playPromise !== undefined) {
           playPromise.then(() => {
-            setIsPlaying(false);
+            setIsPlaying(true);
           }).catch((error) => {
             console.log("Playback failed:", error);
           });
