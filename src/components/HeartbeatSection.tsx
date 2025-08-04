@@ -7,7 +7,7 @@ export const HeartbeatSection = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // You can replace this with your actual heartbeat audio file
-  const heartbeatAudioPath = "/heartbeat-audio.mp3"; // Add your heartbeat audio file to public folder
+  const heartbeatAudioPath = "/heartbeat-audio.mp3" ; // Add your heartbeat audio file to public folder
 
   const handleHeartClick = () => {
     if (audioRef.current) {
