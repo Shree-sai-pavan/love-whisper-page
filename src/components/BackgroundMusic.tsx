@@ -24,10 +24,10 @@ export const BackgroundMusic = () => {
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
-          setIsPlaying(true);
+          setIsPlaying(false);
         }).catch((error) => {
           console.log("Auto-play failed:", error);
-          setIsPlaying(false);
+          setIsPlaying(true);
         });
       }
     }
