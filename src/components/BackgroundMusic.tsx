@@ -73,10 +73,8 @@ export const BackgroundMusic = () => {
       <audio
         ref={audioRef}
         preload="metadata"
+        src={musicPath}
       >
-        <source src={musicPath} type="audio/mpeg" />
-        <source src={musicPath} type="audio/wav" />
-        <source src={musicPath} type="audio/ogg" />
         Your browser does not support the audio element.
       </audio>
     </>
