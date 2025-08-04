@@ -58,29 +58,15 @@ export const BackgroundMusic = () => {
       {/* Floating music controls */}
       <div className="fixed bottom-6 right-6 z-50">
         <div className="bg-card/90 backdrop-blur-lg border border-border rounded-full p-3 shadow-lg">
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleMusic}
-              className="h-10 w-10 p-0 rounded-full hover:bg-primary/20"
-              title={isPlaying ? "Pause music" : "Play music"}
-            >
-              <Music className={`w-5 h-5 ${isPlaying ? 'text-primary' : 'text-muted-foreground'}`} />
-            </Button>
-            
-            {isPlaying && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleMute}
-                className="h-10 w-10 p-0 rounded-full hover:bg-primary/20"
-                title={isMuted ? "Unmute" : "Mute"}
-              >
-                <VolumeX className={`w-4 h-4 ${isMuted ? 'text-destructive' : 'text-muted-foreground'}`} />
-              </Button>
-            )}
-          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleMute}
+            className="h-10 w-10 p-0 rounded-full hover:bg-primary/20"
+            title={isMuted ? "Unmute" : "Mute"}
+          >
+            <VolumeX className={`w-5 h-5 ${isMuted ? 'text-destructive' : 'text-muted-foreground'}`} />
+          </Button>
         </div>
       </div>
 
