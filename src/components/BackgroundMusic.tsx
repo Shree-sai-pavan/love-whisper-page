@@ -14,7 +14,6 @@ export const BackgroundMusic = () => {
     if (audioRef.current) {
       audioRef.current.volume = 0.3; // Set to 30% volume
       audioRef.current.loop = true;
-      audioRef.current.autoplay = true;
       // Auto-start the music
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
