@@ -11,34 +11,11 @@ export const BackgroundMusic = () => {
   const musicPath = "/background-music.mp3";
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      // Ensure audio is paused before setting up
-      audio.pause();
-      audio.currentTime = 0;
-      
-      audio.volume = 0.3; // Set to 30% volume
-      audio.loop = true;
-      
+    if (audioRef.current) {
+      audioRef.current.volume = 0.3; // Set to 30% volume
+      audioRef.current.loop = true;
       // Auto-start the music
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          setIsPlaying(false);
-        }).catch((error) => {
-          console.log("Auto-play failed:", error);
-          setIsPlaying(true);
-        });
-      }
     }
-
-    // Cleanup function to stop audio when component unmounts
-    return () => {
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-    };
   }, []);
 
   const toggleMusic = () => {
