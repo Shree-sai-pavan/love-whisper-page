@@ -4,6 +4,7 @@ import { WelcomeSection } from "@/components/WelcomeSection";
 import { PhotoSection } from "@/components/PhotoSection";
 import { QuoteCarousel } from "@/components/QuoteCarousel";
 import { HeartbeatSection } from "@/components/HeartbeatSection";
+import { VoiceMessageSection } from "@/components/VoiceMessageSection";
 import { TreasureHunt } from "@/components/TreasureHunt";
 import { GiftBoxSection } from "@/components/GiftBoxSection";
 import { PromiseSection } from "@/components/PromiseSection";
@@ -28,6 +29,7 @@ const Index = () => {
       <WelcomeSection />
       <PhotoSection />
       <QuoteCarousel />
+      <VoiceMessageSection />
       <HeartbeatSection />
       <TreasureHunt />
       <GiftBoxSection />

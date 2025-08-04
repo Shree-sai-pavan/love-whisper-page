@@ -1,14 +1,38 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, Play, Pause } from "lucide-react";
+
 export const HeartbeatSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // You can replace this with your actual heartbeat audio file
+  const heartbeatAudioPath = "/heartbeat-audio.mp3"; // Add your heartbeat audio file to public folder
+
   const handleHeartClick = () => {
-    setIsPlaying(!isPlaying);
-    // Here you can add ElevenLabs integration for heartbeat audio
-    console.log("Heartbeat audio:", isPlaying ? "stopping" : "playing");
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            setIsPlaying(true);
+          }).catch((error) => {
+            console.log("Heartbeat playback failed:", error);
+          });
+        }
+      }
+    }
   };
-  return <section className="py-20 px-6 relative overflow-hidden">
+
+  const handleAudioEnd = () => {
+    setIsPlaying(false);
+  };
+
+  return (
+    <section className="py-20 px-6 relative overflow-hidden">
       {/* Animated background hearts */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(12)].map((_, i) => <Heart key={i} className={`absolute text-primary/5 ${isPlaying ? 'glow-animation' : 'float-animation'}`} style={{
@@ -67,5 +91,19 @@ export const HeartbeatSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+
+      {/* Audio element for heartbeat */}
+      <audio
+        ref={audioRef}
+        onEnded={handleAudioEnd}
+        preload="metadata"
+        loop
+      >
+        <source src={heartbeatAudioPath} type="audio/mpeg" />
+        <source src={heartbeatAudioPath} type="audio/wav" />
+        <source src={heartbeatAudioPath} type="audio/ogg" />
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+  );
 };
