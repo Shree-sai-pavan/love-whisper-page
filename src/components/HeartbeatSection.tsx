@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, Play, Pause } from "lucide-react";
 
 export const HeartbeatSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleHeartClick = () => {
     setIsAnimating(!isAnimating);
+    
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            setIsPlaying(true);
+          }).catch((error) => {
+            console.log("Heartbeat playback failed:", error);
+          });
+        }
+      }
+    }
+  };
+
+  const handleAudioEnd = () => {
+    setIsPlaying(false);
+    setIsAnimating(false);
   };
 
   return (
@@ -35,15 +58,15 @@ export const HeartbeatSection = () => {
         <div className="relative">
           <div className="inline-block relative">
             {/* Main heart button */}
-            <Button onClick={handleHeartClick} className={`w-32 h-32 rounded-full heart-gradient hover:scale-110 transition-magic glow-shadow group ${isAnimating ? 'animate-pulse' : ''}`} size="lg">
+            <Button onClick={handleHeartClick} className={`w-32 h-32 rounded-full heart-gradient hover:scale-110 transition-magic glow-shadow group ${isAnimating || isPlaying ? 'animate-pulse' : ''}`} size="lg">
               <div className="relative">
-                <Heart className={`w-12 h-12 text-white transition-all duration-300 ${isAnimating ? 'scale-125' : 'group-hover:scale-110'}`} fill="currentColor" />
-                {isAnimating ? <Pause className="absolute inset-0 w-6 h-6 text-white/80" /> : <Play className="absolute inset-0 w-6 h-6 text-white/80" />}
+                <Heart className={`w-12 h-12 text-white transition-all duration-300 ${isAnimating || isPlaying ? 'scale-125' : 'group-hover:scale-110'}`} fill="currentColor" />
+                {isPlaying ? <Pause className="absolute inset-0 w-6 h-6 text-white/80" /> : <Play className="absolute inset-0 w-6 h-6 text-white/80" />}
               </div>
             </Button>
 
             {/* Ripple effect when playing */}
-            {isAnimating && <>
+            {(isAnimating || isPlaying) && <>
                 <div className="absolute inset-0 rounded-full border-4 border-primary/30 animate-ping cursor-pointer" onClick={handleHeartClick} />
                 <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping cursor-pointer" onClick={handleHeartClick} style={{
               animationDelay: '0.2s'
@@ -54,7 +77,7 @@ export const HeartbeatSection = () => {
 
         <div className="mt-8">
           <p className="font-caveat text-xl md:text-2xl text-foreground mb-4">
-            "Tap for Animation"
+            "Tap to Hear My Heartbeat"
           </p>
           <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">&quot;If I could write my heart out loud, every letter would spell your name—because loving you has become my most beautiful habit.&quot;</p>
         </div>
@@ -62,13 +85,25 @@ export const HeartbeatSection = () => {
         {/* Heartbeat visualization */}
         <div className="mt-12 flex justify-center">
           <div className="flex items-center space-x-1">
-            {[...Array(5)].map((_, i) => <div key={i} className={`w-1 bg-primary rounded-full transition-all duration-300 ${isAnimating ? 'animate-pulse' : ''}`} style={{
+            {[...Array(5)].map((_, i) => <div key={i} className={`w-1 bg-primary rounded-full transition-all duration-300 ${isAnimating || isPlaying ? 'animate-pulse' : ''}`} style={{
             height: `${Math.random() * 30 + 10}px`,
             animationDelay: `${i * 0.1}s`
           }} />)}
           </div>
         </div>
       </div>
+
+      {/* Audio element for heartbeat */}
+      <audio
+        ref={audioRef}
+        onEnded={handleAudioEnd}
+        preload="metadata"
+      >
+        <source src="/heartbeat-audio.mp3" type="audio/mpeg" />
+        <source src="/heartbeat-audio.mp3" type="audio/wav" />
+        <source src="/heartbeat-audio.mp3" type="audio/ogg" />
+        Your browser does not support the audio element.
+      </audio>
     </section>
   );
 };
