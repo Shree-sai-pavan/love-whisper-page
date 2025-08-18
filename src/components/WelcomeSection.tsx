@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
 import heroImage from "@/assets/hero-magic.jpg";
 
 export const WelcomeSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleVoiceClick = () => {
-    setIsPlaying(!isPlaying);
-    // Here you can add ElevenLabs integration for voice-over
-    console.log("Voice note:", isPlaying ? "stopping" : "playing");
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            setIsPlaying(true);
+          }).catch((error) => {
+            console.log("Voice message playback failed:", error);
+          });
+        }
+      }
+    }
+  };
+
+  const handleAudioEnd = () => {
+    setIsPlaying(false);
   };
 
   return (
@@ -77,6 +94,18 @@ export const WelcomeSection = () => {
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
         </div>
       </div>
+
+      {/* Audio element for voice message */}
+      <audio
+        ref={audioRef}
+        onEnded={handleAudioEnd}
+        preload="metadata"
+      >
+        <source src="/voice-message.mp3" type="audio/mpeg" />
+        <source src="/voice-message.mp3" type="audio/wav" />
+        <source src="/voice-message.mp3" type="audio/ogg" />
+        Your browser does not support the audio element.
+      </audio>
     </section>
   );
 };
