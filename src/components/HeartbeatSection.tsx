@@ -1,34 +1,12 @@
-import { useState, useRef } from "react";
+import { useMusicControl } from "@/hooks/useMusicControl";
 import { Button } from "@/components/ui/button";
 import { Heart, Play, Pause } from "lucide-react";
 
 export const HeartbeatSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  // You can replace this with your actual heartbeat audio file
-  const heartbeatAudioPath = "/heartbeat-audio.mp3" ; // Add your heartbeat audio file to public folder
+  const { isPlaying, toggleMusic } = useMusicControl();
 
   const handleHeartClick = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        const playPromise = audioRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => {
-            setIsPlaying(true);
-          }).catch((error) => {
-            console.log("Heartbeat playback failed:", error);
-          });
-        }
-      }
-    }
-  };
-
-  const handleAudioEnd = () => {
-    setIsPlaying(false);
+    toggleMusic();
   };
 
   return (
@@ -66,8 +44,8 @@ export const HeartbeatSection = () => {
 
             {/* Ripple effect when playing */}
             {isPlaying && <>
-                <div className="absolute inset-0 rounded-full border-4 border-primary/30 animate-ping" />
-                <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping" style={{
+                <div className="absolute inset-0 rounded-full border-4 border-primary/30 animate-ping cursor-pointer" onClick={handleHeartClick} />
+                <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping cursor-pointer" onClick={handleHeartClick} style={{
               animationDelay: '0.2s'
             }} />
               </>}
@@ -76,7 +54,7 @@ export const HeartbeatSection = () => {
 
         <div className="mt-8">
           <p className="font-caveat text-xl md:text-2xl text-foreground mb-4">
-            "Tap to Hear My Heart"
+            "Tap to Control Music"
           </p>
           <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">&quot;If I could write my heart out loud, every letter would spell your name—because loving you has become my most beautiful habit.&quot;</p>
         </div>
@@ -91,19 +69,6 @@ export const HeartbeatSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Audio element for heartbeat */}
-      <audio
-        ref={audioRef}
-        onEnded={handleAudioEnd}
-        preload="metadata"
-        loop
-      >
-        <source src={heartbeatAudioPath} type="audio/mpeg" />
-        <source src={heartbeatAudioPath} type="audio/wav" />
-        <source src={heartbeatAudioPath} type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
     </section>
   );
 };
