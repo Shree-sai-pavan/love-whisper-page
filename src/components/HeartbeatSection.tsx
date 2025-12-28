@@ -99,9 +99,7 @@ export const HeartbeatSection = () => {
         onEnded={handleAudioEnd}
         preload="metadata"
       >
-        <source src="/heartbeat-audio.mp3" type="audio/mpeg" />
-        <source src="/heartbeat-audio.mp3" type="audio/wav" />
-        <source src="/heartbeat-audio.mp3" type="audio/ogg" />
+        <source src={`${import.meta.env.BASE_URL}heartbeat-audio.mp3`} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </section>

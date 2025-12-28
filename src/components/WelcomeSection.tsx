@@ -101,9 +101,7 @@ export const WelcomeSection = () => {
         onEnded={handleAudioEnd}
         preload="metadata"
       >
-        <source src="/voice-message.mp3" type="audio/mpeg" />
-        <source src="/voice-message.mp3" type="audio/wav" />
-        <source src="/voice-message.mp3" type="audio/ogg" />
+        <source src={`${import.meta.env.BASE_URL}voice-message.mp3`} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
     </section>
