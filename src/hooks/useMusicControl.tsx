@@ -53,7 +53,7 @@ export const MusicProvider = ({ children }: { children: ReactNode }) => {
       <audio
         ref={audioRef}
         preload="metadata"
-        src="/background-music.mp3"
+        src={`${import.meta.env.BASE_URL}background-music.mp3`}
       >
         Your browser does not support the audio element.
       </audio>
