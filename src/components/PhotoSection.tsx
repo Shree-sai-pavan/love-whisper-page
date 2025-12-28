@@ -1,7 +1,48 @@
-import { Sparkles, Heart } from "lucide-react";
+import { useState } from "react";
+import { Sparkles, X } from "lucide-react";
 import polaroidFrame from "@/assets/polaroid-frame.jpg";
 
+const photos = [
+  {
+    src: `${import.meta.env.BASE_URL}lovable-uploads/781c6d50-2c3f-4409-a835-d1d7d3a27fa9.png`,
+    alt: "Neon wings moment",
+    caption: "First moments ✨",
+    rotate: "rotate-2"
+  },
+  {
+    src: `${import.meta.env.BASE_URL}lovable-uploads/c9f88014-18c6-4386-be20-32b01ad34e60.png`,
+    alt: "Traditional blue attire",
+    caption: "Sweet times 🌸",
+    rotate: "-rotate-1"
+  },
+  {
+    src: `${import.meta.env.BASE_URL}lovable-uploads/a7b5bbf9-0e8a-46df-93dc-b8ab0be52831.png`,
+    alt: "Pink flower moment",
+    caption: "Adventure 🌟",
+    rotate: "-rotate-2"
+  },
+  {
+    src: `${import.meta.env.BASE_URL}lovable-uploads/7abbaf57-ff15-43e4-9416-de5feb22c289.png`,
+    alt: "Street art adventure",
+    caption: "Forever 💖",
+    rotate: "rotate-1"
+  }
+];
+
 export const PhotoSection = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activePhoto, setActivePhoto] = useState<number | null>(null);
+
+  const openLightbox = (index: number) => {
+    setActivePhoto(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setActivePhoto(null);
+  };
+
   return (
     <section className="py-20 px-6 relative overflow-hidden">
       {/* Background pattern */}
@@ -26,112 +67,39 @@ export const PhotoSection = () => {
         {/* Photo frames grid */}
         <div className="relative">
           <div className="grid grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
-            {/* Frame 1 */}
-            <div className="relative group">
-              <div 
-                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform rotate-2 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
-                style={{
-                  backgroundImage: `url(${polaroidFrame})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
-                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}lovable-uploads/781c6d50-2c3f-4409-a835-d1d7d3a27fa9.png`} 
-                    alt="Neon wings moment" 
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
-                  <p className="font-caveat text-lg text-foreground text-center px-2">
-                    First moments ✨
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Frame 2 */}
-            <div className="relative group">
-              <div 
-                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform -rotate-1 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
-                style={{
-                  backgroundImage: `url(${polaroidFrame})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
-                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}lovable-uploads/c9f88014-18c6-4386-be20-32b01ad34e60.png`} 
-                    alt="Traditional blue attire" 
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
-                  <p className="font-caveat text-lg text-foreground text-center px-2">
-                    Sweet times 🌸
-                  </p>
+            {photos.map((photo, index) => (
+              <div key={index} className="relative group">
+                <div 
+                  className={`w-60 h-60 md:w-72 md:h-72 mx-auto relative transform ${photo.rotate} hover:rotate-0 transition-magic hover:scale-105 magic-shadow cursor-pointer`}
+                  style={{
+                    backgroundImage: `url(${polaroidFrame})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                  onClick={() => openLightbox(index)}
+                >
+                  <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={photo.src} 
+                      alt={photo.alt} 
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
+                    <p className="font-caveat text-lg text-foreground text-center px-2">
+                      {photo.caption}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Frame 3 */}
-            <div className="relative group">
-              <div 
-                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform -rotate-2 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
-                style={{
-                  backgroundImage: `url(${polaroidFrame})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
-                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}lovable-uploads/a7b5bbf9-0e8a-46df-93dc-b8ab0be52831.png`} 
-                    alt="Pink flower moment" 
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
-                  <p className="font-caveat text-lg text-foreground text-center px-2">
-                    Adventure 🌟
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Frame 4 */}
-            <div className="relative group">
-              <div 
-                className="w-60 h-60 md:w-72 md:h-72 mx-auto relative transform rotate-1 hover:rotate-0 transition-magic hover:scale-105 magic-shadow"
-                style={{
-                  backgroundImage: `url(${polaroidFrame})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
-                <div className="absolute inset-6 bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}lovable-uploads/7abbaf57-ff15-43e4-9416-de5feb22c289.png`} 
-                    alt="Street art adventure" 
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-full">
-                  <p className="font-caveat text-lg text-foreground text-center px-2">
-                    Forever 💖
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Floating sparkles around all frames */}
           {[...Array(12)].map((_, i) => (
             <Sparkles
               key={i}
-              className={`absolute text-magic-pink sparkle-animation pointer-events-none`}
+              className="absolute text-magic-pink sparkle-animation pointer-events-none"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -148,6 +116,35 @@ export const PhotoSection = () => {
           </p>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightboxOpen && activePhoto !== null && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md animate-fade-in"
+          onClick={closeLightbox}
+        >
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 p-2 rounded-full bg-primary/20 hover:bg-primary/40 transition-colors"
+          >
+            <X className="w-8 h-8 text-foreground" />
+          </button>
+          
+          <div 
+            className="max-w-4xl max-h-[85vh] p-4 animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={photos[activePhoto].src}
+              alt={photos[activePhoto].alt}
+              className="max-w-full max-h-[75vh] object-contain rounded-xl magic-shadow"
+            />
+            <p className="font-caveat text-2xl text-primary text-center mt-4">
+              {photos[activePhoto].caption}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
